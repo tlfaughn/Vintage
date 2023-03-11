@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    body {
+        background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.73), rgba(0, 0, 0, 0.73)), url('../../static/images/Home.jpeg');
+        background-position: center;
+        height: 100vh;
+        background-size: cover;
+        margin: 0;
+        padding: 0;
+    }
+</style>
+<section class="p-5">
+    <section class="p-5">
+        <h6 class="text-light text-center text-shadow p-6">
+            Back-end Flask application that allows users to 
+            Sign-Up/Sign-In<br>
+            Storing all their vintage cars.<br>
+            Adding, Deleting, & Updating directly on the site. <br>
+            PostgreSQL database <br>
+            <a class="text-danger" href="https://github.com/Schadre/Vintage">Github link</a>
+        </h6>
+    </section>
+</section>
+{% endblock %}

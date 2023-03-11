@@ -1,0 +1,36 @@
+* {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+body {
+    padding-top: 0px;
+  }
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+#profile {
+    background: rgba(255, 255, 255, 0.329);
+    display: flexbox;
+    flex-direction: row;
+    align-content: center;
+}
+
+
+@media (max-width: 300px) {
+    html { font-size: 75%; }
+}
+
+@media (min-width: 500px) {
+    html { font-size: 85%; }
+}
+
+@media (min-width: 700px) {
+    html { font-size: 100%; }
+}
+
+@media (min-width: 1200px) {
+    html { font-size: 120%; }
+}

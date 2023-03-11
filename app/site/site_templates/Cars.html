@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    body {
+        background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.73), rgba(0, 0, 0, 0.73)), url('../../static/images/Porsche.jpeg');
+        background-position: center;
+        height: 100vh;
+        background-size: cover;
+        margin: 0;
+        padding: 0;
+    }
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    }
+    
+form div {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    }
+    
+form div label {
+    width: 150px;
+    font-weight: bold;
+    text-align: right;
+    margin-right: 10px;
+    }
+    
+form div input {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    font-size: 16px;
+    }
+    
+form button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    font-size: 16px;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    }
+  
+.delete-button {
+    margin-top: -50px;
+    }
+</style>
+<section class="text-center text-warning p-5">
+    <div class="container p-5">
+        <form method="post" action="{{ url_for('site.add_car') }}">
+            <div>
+                <label for="Vin">VIN:</label>
+                <input type="text" id="Vin" name="Vin" required>
+            </div>
+            <div>
+                <label for="Make">Make:</label>
+                <input type="text" id="Make" name="Make" required>
+            </div>
+            <div>
+                <label for="Model">Model:</label>
+                <input type="text" id="Model" name="Model" required>
+            </div>
+            <div>
+                <label for="Year">Year:</label>
+                <input type="text" id="Year" name="Year" required>
+            </div>
+            <button class="btn btn-warning text-light" type="submit">Add Car</button>
+        </form>
+
+        <table id="profile">
+            <thead>
+                <tr>
+                    <th>VIN</th>
+                    <th>Make</th>
+                    <th>Model</th>
+                    <th>Year</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for car in cars %}
+                    <tr data-id="{{ car.Vin }}">
+                        <td class="p-5">{{ car.Vin }}</td>
+                        <td class="p-5">{{ car.Make }}</td>
+                        <td class="p-5">{{ car.Model }}</td>
+                        <td class="p-5">{{ car.Year }}</td>
+                        <td class="p-3">
+                            <form method="POST" action="{{ url_for('site.delete_car', id=car.Vin) }}">
+                                <input type="hidden" name="_method" value="DELETE">
+                                <button type="submit" class="btn btn-warning text-light delete-button">Delete</button>
+                            </form>
+                            
+                        </td>
+                    </tr>
+                    {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</section>
+{% endblock %}
+
