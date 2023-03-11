@@ -57,4 +57,4 @@ def delete_car(id):
 def error_handler(error):
     error_code = error.code
     error_message = error.description
-    return render_template('error.html', error_code=error_code, error_message=error_message), error_code
+    return render_template('Error.html', error_code=error_code, error_message=error_message), error_code
