@@ -2,7 +2,7 @@ from flask import Blueprint, request, jsonify, render_template
 from helpers import token_required
 from models import db, User, Car, car_schema, cars_schema
 
-
+#make a route 
 api = Blueprint('api', __name__, url_prefix='/api')
 
 @api.route('/cars', methods=['POST'])
